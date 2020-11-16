@@ -41,15 +41,15 @@ export const getVisualPosition = (row, col, width, height) => {
     };
 }
 
-// shuffle and makes sure its solvable
+//shuffle and makes sure its solvable
 export const shuffle = (tiles) => {
     const shuffledTiles = [
         ...tiles
-        .filter((t) = t !== tiles.length - 1)
+        .filter((t) => t !== tiles.length - 1)
         .sort(() => Math.random() - 0.5),
         tiles.length - 1,
     ];
-    return isSolvable(suffledTiles) && !isSolved(shuffledTiles)
+    return isSolvable(shuffledTiles) && !isSolved(shuffledTiles)
         ? shuffledTiles
         : shuffle(shuffledTiles);
 }
@@ -58,13 +58,13 @@ export const shuffle = (tiles) => {
 export const canSwap = (src, dest, GRID_SIZE) => {
     const { row: srcRow, col: srcCol } = getMatrixPosition( src, GRID_SIZE )
     const { row: destRow, col: destCol } = getMatrixPosition( dest, GRID_SIZE);
-    return Math.abs(srcRow - destRow) + Math.abs(src - destCol) === 1;
+    return Math.abs(srcRow - destRow) + Math.abs(srcCol - destCol) === 1;
 }
 
 // moves the tile into the empty slot
 export const swap = (tiles, src, dest) => {
     const tilesResult = [...tiles];
-    [tilesResult[src], tilesReresult[dest]] = [tilesResult[dest], tilesResult[src]]
+    [tilesResult[src], tilesResult[dest]] = [tilesResult[dest], tilesResult[src]]
     return tilesResult;
 
 }
