@@ -1,10 +1,10 @@
-import react from "react";
+import React, { useState } from "react";
 import Tile from "../components/Tile";
 import { BOARD_SIZE, GRID_SIZE, TILE_COUNT } from "../constants";
 import { canSwap, shuffle, swap } from "../helpers";
 const Board = () => {
     // Keep track of the tiles in states, gives an array of correct size
-    const[tiles, setTiles] = useState([...Array(TILE_COUNT).keys]);
+    const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
     const [isSolved, setIsSolved] = useState(false);
     const [isStarted, setIsStarted] = useState(false);
 
@@ -16,8 +16,8 @@ const Board = () => {
 
     // argument is the tile that has been clicked
     const swapTiles = (tileIndex) => {
-        if(canSwap(tileIndex, tiles.length -1 )) {
-            const swappedTiles = swap(tiles, tileIndex, tiles.length -1)
+        if(canSwap(tileIndex, tiles.indexOf(tiles.length -1 ))) {
+            const swappedTiles = swap(tiles, tileIndex, tiles.indexOf(tiles.length -1))
             setTiles(swappedTiles)
         }
     }
