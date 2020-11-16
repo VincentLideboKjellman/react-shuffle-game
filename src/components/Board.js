@@ -1,5 +1,5 @@
 import react from "react";
-import Tile from ".Tile";
+import Tile from "../components/Tile";
 import { BOARD_SIZE, GRID_SIZE, TILE_COUNT } from "../constants";
 import { canSwap, shuffle, swap } from "../helpers";
 const Board = () => {
@@ -16,7 +16,7 @@ const Board = () => {
 
     // argument is the tile that has been clicked
     const swapTiles = (tileIndex) => {
-        if(canSwap(tileIndex, tile.length -1 )) {
+        if(canSwap(tileIndex, tiles.length -1 )) {
             const swappedTiles = swap(tiles, tileIndex, tiles.length -1)
             setTiles(swappedTiles)
         }
@@ -29,6 +29,12 @@ const Board = () => {
 
     const handleShuffleClick = () => {
         shuffleTiles()
+    }
+
+    const handleStartClick = () => {
+        shuffleTiles();
+        setIsStarted(true);
+
     }
 
 
@@ -50,10 +56,13 @@ const Board = () => {
                 tile={tile}
                 width={pieceWidth}
                 height={pieceHeight}
+                handleTileClick={handleTileClick}
                 />
             ))}
         </ul>
-        <button>slumpa</button>
+        {!isStarted ?
+            (<button onClick={() => handleStartClick()}> Börja Spela </button>) :
+            (<button onClick={() => handleShuffleClick()}> Slumpa </button> )}
     </>
     );
 }
