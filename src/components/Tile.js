@@ -13,15 +13,14 @@ const Tile = (props) => {
         translateX: visualPos.x,
         translateY: visualPos.y,
     };
- //continue here
     return (
         <li
             style={{
                 width: tileStyle.width,
                 height: tileStyle.height,
-                transform: `translate3d(${tileStyle.translateX})px, ${tileStyle.translateY}px`,
-                // Is last tile?
-                opacity: tile === TILE_COUNT - 1 ? 0 : 1,
+                transform: `translate3d(${tileStyle.translateX}px, ${tileStyle.translateY}px, 0)`,
+            // Is last tile?
+            opacity: tile === TILE_COUNT - 1 ? 0 : 1,
             }}
             className="tile"
             onClick={() => handleTileClick(index)}
