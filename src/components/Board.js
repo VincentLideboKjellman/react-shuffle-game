@@ -47,6 +47,11 @@ const Board = () => {
 
     const solved = isSolved(tiles)
 
+    //shuffles when you enter the site
+    window.onload = function() {
+        shuffleTiles()
+      };
+
     return (
     <>
         <ul style={style} className="board">
@@ -61,10 +66,11 @@ const Board = () => {
                 />
             ))}
         </ul>
-        {solved && isStarted && <div>Bra jobbat, du vann! :) </div>}
-        {!isStarted ?
+        {solved && isStarted && <div>Bra jobbat, du löste puzzlet! :) </div>}
+        {/* {!isStarted ?
             (<button onClick={() => handleStartClick()}> Börja Spela </button>) :
-            (<button onClick={() => handleShuffleClick()}> Slumpa </button> )}
+            (<button onClick={() => handleShuffleClick()}> Slumpa </button> )} */}
+            <button onClick={() => handleShuffleClick()}> Slumpa </button>
     </>
     );
 }
