@@ -5,11 +5,11 @@ import { canSwap, shuffle, swap, isSolved } from "../helpers";
 const Board = () => {
     // Keep track of the tiles in states, gives an array of correct size
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
-    const [isStarted, setIsStarted] = useState(false);
+    //const [isStarted, setIsStarted] = useState(false);
     console.log(tiles)
     // sets the state to the shuffled tiles from the helper functions
     const shuffleTiles = () => {
-        const shuffledTiles = shuffle(tiles)
+        //const shuffledTiles = shuffle(tiles)
         setTiles(shuffle)
     }
 
@@ -31,11 +31,11 @@ const Board = () => {
     }
 
     //if you want a button to start game instead of onload
-    const handleStartClick = () => {
-        shuffleTiles();
-        setIsStarted(true);
+    // const handleStartClick = () => {
+    //     shuffleTiles();
+    //     setIsStarted(true);
 
-    }
+    // }
 
 
     // Based on board size
@@ -67,7 +67,7 @@ const Board = () => {
                 />
             ))}
         </ul>
-        {solved && isStarted && <div>Bra jobbat, du löste puzzlet! :) </div>}
+        {solved && <div>Bra jobbat, du löste puzzlet! :) </div>}
         {/* {!isStarted ?
             (<button onClick={() => handleStartClick()}> Börja Spela </button>) :
             (<button onClick={() => handleShuffleClick()}> Slumpa </button> )} */}
