@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Tile from "../components/Tile";
 import { BOARD_SIZE, GRID_SIZE, TILE_COUNT } from "../constants";
-import { canSwap, shuffle, swap } from "../helpers";
+import { canSwap, shuffle, swap, isSolved } from "../helpers";
 const Board = () => {
     // Keep track of the tiles in states, gives an array of correct size
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
-    const [isSolved, setIsSolved] = useState(false);
+    //const [isSolved, setIsSolved] = useState(false);
     const [isStarted, setIsStarted] = useState(false);
-
+    console.log(tiles)
     // sets the state to the shuffled tiles from the helper functions
     const shuffleTiles = () => {
         const shuffledTiles = shuffle(tiles)
@@ -46,6 +46,8 @@ const Board = () => {
         height: BOARD_SIZE,
     };
 
+    const solved = isSolved(tiles)
+
     return (
     <>
         <ul style={style} className="board">
@@ -60,6 +62,7 @@ const Board = () => {
                 />
             ))}
         </ul>
+        {solved && isStarted && <div>Bra jobbat, du vann! :) </div>}
         {!isStarted ?
             (<button onClick={() => handleStartClick()}> Börja Spela </button>) :
             (<button onClick={() => handleShuffleClick()}> Slumpa </button> )}
