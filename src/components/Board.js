@@ -30,6 +30,7 @@ const Board = () => {
         shuffleTiles()
     }
 
+    //if you want a button to start game instead of onload
     const handleStartClick = () => {
         shuffleTiles();
         setIsStarted(true);

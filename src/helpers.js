@@ -66,7 +66,6 @@ export const swap = (tiles, src, dest) => {
     const tilesResult = [...tiles];
     [tilesResult[src], tilesResult[dest]] = [tilesResult[dest], tilesResult[src]]
     return tilesResult;
-
 }
 
 
