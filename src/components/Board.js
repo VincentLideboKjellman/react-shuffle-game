@@ -5,7 +5,6 @@ import { canSwap, shuffle, swap, isSolved } from "../helpers";
 const Board = () => {
     // Keep track of the tiles in states, gives an array of correct size
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
-    //const [isSolved, setIsSolved] = useState(false);
     const [isStarted, setIsStarted] = useState(false);
     console.log(tiles)
     // sets the state to the shuffled tiles from the helper functions
